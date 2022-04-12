@@ -1,0 +1,53 @@
+.carousel {
+  overflow: hidden;
+  margin: 2.4rem 0;
+  @include respond(tab-land) {
+    height: 280px;
+    margin: 0;
+  }
+
+  &__inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+    &-card {
+      display: inline-flex;
+      height: 300px;
+      justify-content: center;
+      align-items: center;
+      background-color: yellow;
+      color: $black-color;
+      width: 100%;
+      @include b-visual;
+
+      @include respond(tab-land) {
+        height: 200px;
+      }
+    }
+  }
+
+  &__control {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+
+    &-btn {
+    }
+
+    &-indicators {
+      border-radius: 999px;
+      border: none;
+      background-color: $gray-color-light;
+      width: 8px;
+      height: 8px;
+      margin: 0 1rem;
+      cursor: pointer;
+
+      &.active,
+      &:hover {
+        background: $primary-color;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

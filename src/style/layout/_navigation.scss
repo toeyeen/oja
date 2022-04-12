@@ -1,0 +1,62 @@
+.navigation {
+  padding: 2rem 2.5rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: $gray-color-dark;
+  background: $white-color;
+
+  &__section-1 {
+    flex: 60%;
+  }
+  &__section-2 {
+    flex: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__search {
+    width: 60%;
+
+    &-input {
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem 0.75rem;
+      border-radius: 99px;
+      border: none;
+      box-shadow: -4px 3px 12px 0px rgba(204, 204, 204, 0.75);
+      position: relative;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 12px;
+    }
+  }
+  &__logo {
+    font-size: 2.4rem;
+  }
+  &__menu {
+    display: inline;
+    position: relative;
+
+    &-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 99px;
+      position: relative;
+      background: $white-color;
+      box-shadow: -4px 3px 12px 0px rgba(204, 204, 204, 0.75);
+
+      & > * {
+        @include absCenter;
+      }
+    }
+  }
+}

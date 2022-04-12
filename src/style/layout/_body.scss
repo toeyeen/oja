@@ -1,0 +1,26 @@
+.advert {
+  &__first {
+    display: block;
+
+    @include respond(tab-land) {
+      margin: 2.4rem 0;
+      display: grid;
+      gap: 1.6rem;
+      justify-content: center;
+      grid-template-columns: minmax(60%, 65%) minmax(33%, auto);
+      // grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__second {
+    display: block;
+
+    @include respond(tab-land) {
+      display: grid;
+      gap: 1.6rem;
+      justify-content: center;
+      align-items: center;
+      grid-template-columns: minmax(30%, 35%) minmax(65%, auto);
+      // grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

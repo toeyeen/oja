@@ -1,0 +1,24 @@
+// Abstract
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+// Base Style
+@import 'base/base';
+@import 'base/animation';
+@import 'base/typography';
+@import 'base/utilities';
+
+// Laout style
+@import 'layout/grid';
+@import 'layout/navigation';
+@import 'layout/sub-navigation';
+@import 'layout/body';
+
+// Component Styles
+@import 'components/buttons.scss';
+@import 'components/carousel.scss';
+@import 'components/advert-product.scss';
+@import 'components/category-card';
+@import 'components/top-products';
+@import 'components/product-carousel';

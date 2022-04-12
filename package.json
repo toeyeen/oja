@@ -1,0 +1,30 @@
+{
+  "name": "oja",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "feather-icons": "^4.29.0",
+    "pinia": "^2.0.13",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14",
+    "vue-svg-sprite": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/feather-icons": "^4.7.0",
+    "@vitejs/plugin-vue": "^2.3.0",
+    "sass": "^1.49.11",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.0",
+    "vite-svg-loader": "^3.2.0",
+    "vue-tsc": "^0.29.8"
+  }
+}
