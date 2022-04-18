@@ -5,4 +5,11 @@ import svgLoader from 'vite-svg-loader'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), svgLoader()],
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       vars: `src/style/abstracts/_variables.scss`,
+  //     },
+  //   },
+  // },
 })

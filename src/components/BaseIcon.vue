@@ -29,6 +29,7 @@ const state = reactive({
   styleObject: {
     width: `${props.size}px`,
     height: `${props.size}px`,
+    display: 'inline',
   },
 })
 

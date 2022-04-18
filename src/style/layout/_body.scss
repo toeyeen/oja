@@ -23,4 +23,18 @@
       // grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  &__third {
+    @include respond(tab-land) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  &__fourth {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
 }

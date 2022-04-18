@@ -1,0 +1,139 @@
+.footer {
+  &__section-1 {
+    background-color: $white-color;
+    padding: 3rem 1.6rem;
+
+    @include respond(phone) {
+      padding: 4rem 1.6rem;
+    }
+
+    @include respond(desktop) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__subscribe {
+      padding: 0 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      text-align: center;
+
+      @include respond(phone) {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 1.6rem;
+        // align-items: center;
+        margin: 0 auto;
+        text-align: center;
+        @include b-visual;
+      }
+
+      // @include respond(tab-land) {
+      //   flex: 0 0 60%;
+      // }
+
+      @include respond(tab-port) {
+        display: flex;
+        flex-direction: row;
+        // flex: 1;
+        flex: 0 0 60%;
+        align-items: center;
+      }
+
+      .input__container {
+        flex: 1;
+      }
+
+      & > p {
+        font-size: 14px;
+        margin-bottom: 1rem;
+        @include respond(tab-port) {
+          padding-right: 2em;
+          margin: 0;
+        }
+      }
+    }
+
+    &__socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2.4rem;
+
+      & > p {
+        font-size: 14px;
+        margin-right: 1rem;
+        @include respond(tab-port) {
+          padding-right: 2em;
+          margin: 0;
+        }
+      }
+
+      @include b-visual;
+      @include respond(tab-land) {
+        flex: 1;
+        display: flex;
+        margin: 0;
+      }
+
+      &-icons {
+        display: flex;
+
+        & > * {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  &__section-2 {
+    background: $primary-color;
+    color: $white-color;
+    font-size: 1.6em;
+    padding: 3rem 1.6rem;
+
+    @include respond(tab-land) {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__service {
+      font-size: 14px;
+      font-weight: 300;
+      margin-bottom: 1rem;
+
+      & > p:nth-child(2) {
+        font-weight: 400;
+      }
+
+      @include respond(tab-land) {
+        width: 16.6%;
+
+        & > div:nth-child(2) {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    &__img {
+      margin: 1rem 0;
+      text-align: center;
+      @include respond(tab-land) {
+        width: 16.6%;
+      }
+    }
+
+    &__ul {
+      @include respond(tab-land) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2rem;
+        width: 66.6%;
+        justify-items: center;
+      }
+    }
+  }
+}

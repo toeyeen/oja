@@ -3,6 +3,7 @@ $primary-color: #005aaa;
 $primary-color-dark: #003268;
 $primary-color-dark-2: #053a7f;
 $primary-color-light: #003268;
+$primary-color-light-2: #00aaef;
 
 $secondary-color: #f2fbff;
 
@@ -12,6 +13,7 @@ $gray-color-light: #e5eef6;
 
 $white-color: #fff;
 $black-color: #000;
+$red-color: #c00;
 
 $border-color: #d9dee1;
 
@@ -19,6 +21,23 @@ $default-font-size: 1.6rem;
 
 .container {
   margin: 0 1rem;
+}
+
+.text-red {
+  color: $red-color;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-3 {
+  margin-bottom: 3rem;
+}
+.mb-4 {
+  margin-bottom: 4rem;
 }
 
 /**

@@ -1,25 +1,31 @@
 <template>
   <div class="product-carousel">
     <div class="product-carousel__title">
-      <h1>Get the cheapest Nivea shower gel free, when you buy three!</h1>
+      <h1 :class="headlineStyle">{{ props.headline }}</h1>
       <button class="btn btn-link">View more</button>
     </div>
 
-    <div
-      class="product-carousel__inner"
-      ref="inner"
-      :style="state.innerStyles"
-      style="transform: translateX(-0%)"
-    >
-      <div class="product-carousel__list">
+    <div class="product-carousel__inner" ref="inner" :style="state.innerStyles">
+      <div
+        class="product-carousel__list-item"
+        v-for="product in props.products"
+        :key="product.id"
+        :style="state.divStyle"
+      >
+        <div class="product-carousel__list-style">
+          <ProductItem :product="product" />
+        </div>
+      </div>
+
+      <!-- <div class="product-carousel__list">
         <div
           class="product-carousel__list-item"
-          v-for="product in state.products"
+          v-for="product in props.products"
           :key="product.id"
         >
           <ProductItem :product="product" />
         </div>
-      </div>
+      </div> -->
       <!-- <div
         v-for="slide in state.products"
         :key="slide.id"
@@ -28,12 +34,65 @@
         <ProductItem :product="slide" />
       </div> -->
     </div>
+
+    <div
+      class="carousel__control"
+      @mouseenter="state.auto = false"
+      @mouseleave="state.auto = true"
+    >
+      <button
+        class="carousel__control-btn"
+        v-show="state.ctrlPrevNext"
+        @click="prev"
+      >
+        Prev
+      </button>
+      <div
+        v-for="product in props.products"
+        v-if="state.ctrlCenter"
+        @click="goTo(+product.id)"
+        class="carousel__control-indicators"
+        :class="state.activeIndex == product.id ? 'active' : ''"
+        :key="product.id"
+        style="padding: 1rem"
+      ></div>
+      <button
+        class="carousel__control-btn"
+        v-show="state.ctrlPrevNext"
+        @click="next"
+      >
+        Next
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ProductItem from './ProductItem.vue'
-import { reactive, ref, onMounted, onUnmounted } from 'vue'
+// import { useMedia } from '../composable/useMedia'
+
+import {
+  reactive,
+  ref,
+  defineProps,
+  onMounted,
+  onUnmounted,
+  computed,
+} from 'vue'
+
+const props = defineProps({
+  headline: {
+    type: String,
+  },
+  products: {
+    type: Array,
+    required: true,
+  },
+  promotion: {
+    type: Boolean,
+  },
+})
+
 const state = reactive({
   categories: [
     {
@@ -57,100 +116,101 @@ const state = reactive({
       iamge: '1224355',
     },
   ],
-  products: [
-    {
-      id: '1',
-      name: 'Nestle',
-      description: 'Cerelac Baby Cereal With Milk Banana 250g',
-      price: '37.99',
-      image:
-        'https://clicks.co.za/medias/?context=bWFzdGVyfHByb2R1Y3QtaW1hZ2VzfDI3NTQ5M3xpbWFnZS9qcGVnfHByb2R1Y3QtaW1hZ2VzL2g1Ni9oMGYvMTAzNjk3NTE2NzkwMDYuanBnfDFiOWJjMDMzNDJiMDNmMWVhMDMxZWUzMmYwMmFjZjc3ZGYxZGQ5NzllYTlmYzRkYWJjNzdiYTE5NzZkNzA0NDE',
-    },
-    {
-      id: '2',
-      name: 'Indomie',
-      description: 'Cerelac Baby Cereal With Milk Banana 250g',
-      price: '37.99',
-      image:
-        'https://clicks.co.za/medias/?context=bWFzdGVyfHByb2R1Y3QtaW1hZ2VzfDI3NTQ5M3xpbWFnZS9qcGVnfHByb2R1Y3QtaW1hZ2VzL2g1Ni9oMGYvMTAzNjk3NTE2NzkwMDYuanBnfDFiOWJjMDMzNDJiMDNmMWVhMDMxZWUzMmYwMmFjZjc3ZGYxZGQ5NzllYTlmYzRkYWJjNzdiYTE5NzZkNzA0NDE',
-    },
-    {
-      id: '3',
-      name: 'Dangote',
-      description: 'Cerelac Baby Cereal With Milk Banana 250g',
-      price: '37.99',
-      image:
-        'https://clicks.co.za/medias/?context=bWFzdGVyfHByb2R1Y3QtaW1hZ2VzfDI0OTgwM3xpbWFnZS9qcGVnfHByb2R1Y3QtaW1hZ2VzL2g3Ny9oOWQvMTA0MjU3OTgxMzE3NDIuanBnfGE3NDMwY2Q4NGU0Y2RjZjcyOTdhMjEzNjNjMmI1ZjQzOGY2NDQxN2JhNWQ1NzY5NmY4YjI5ZDU2MzI0NTc0ZmY',
-    },
-  ],
   activeIndex: 1,
   step: '',
   innerStyles: {},
+  divStyle: {},
   position: 100,
   percentage: 100,
   auto: false,
   text: '',
   count: 0,
-  interval: 3,
+  interval: 4,
   ctrlPrevNext: false,
   ctrlCenter: true,
+  perPage: 2,
 })
 const inner = ref()
+
+const headlineStyle = computed(() => {
+  return { 'text-red': props.promotion == true }
+})
 
 const setStep = () => {
   const innerWidth = inner.value.scrollWidth
 
-  const totalSlides = state.products.length
-  state.step = `${(innerWidth / totalSlides).toFixed(2)}`
+  const totalSlides = props.products.length
+
+  if (window.innerWidth < 600) {
+    state.divStyle = {
+      width: `calc(100%)`,
+    }
+    state.step = `${(innerWidth / totalSlides).toFixed(2)}`
+  }
+  state.step = `${(innerWidth / totalSlides / state.perPage).toFixed(2)}`
+
+  state.divStyle = {
+    width: `calc(${state.percentage / state.perPage}%)`,
+  }
 }
 const moveLeft = () => {
   if (state.activeIndex < 1) return
 
-  console.log(state.activeIndex)
-  if (state.activeIndex == 1) {
-    state.position = state.products.length * +state.percentage
-    state.activeIndex = state.products.length + 1
+  skipLast('left')
 
-    console.log('back active')
-  }
+  console.log(+state.position - +state.step)
 
   state.innerStyles = {
-    transform: `translateX(${-Math.abs(+state.position - +state.percentage)}%)`,
+    transform: `translateX(${-Math.abs(+state.position - +state.step)}px)`,
   }
-  state.position = +state.position - +state.percentage
+
+  state.position = +state.position - +state.step
 
   state.activeIndex--
 }
 
 const moveRight = () => {
-  if (state.activeIndex == state.products.length) {
+  skipLast('right')
+
+  state.innerStyles = {
+    transform: `translateX(-${+state.step * +state.activeIndex}px)`,
+  }
+
+  state.position = +state.step * state.activeIndex
+  state.activeIndex++
+}
+
+const skipLast = (direction: string) => {
+  if (
+    state.perPage > 1 &&
+    state.activeIndex == props.products.length - 1 &&
+    direction == 'right'
+  ) {
     state.activeIndex = 0
     state.innerStyles = ''
     state.position = 100
     state.percentage = 100
   }
-
-  state.innerStyles = {
-    transform: `translateX(-${+state.percentage * +state.activeIndex}%)`,
+  if (state.perPage > 1 && state.activeIndex == 1 && direction == 'left') {
+    state.activeIndex = props.products.length
+    // state.innerStyles = ''
+    // state.position = 100
+    // state.percentage = 100
+    console.log('shpout from the skipleft ')
   }
-  state.position = +state.percentage * state.activeIndex
-  state.activeIndex++
 }
 
 const paused = (pause: boolean) => {
   state.auto = pause
-
-  console.log(state.auto)
-  console.log('here here')
 }
 
 const goTo = (index: number): void => {
   state.activeIndex = index
 
-  const multiplier = index - 1 * +state.percentage
+  const multiplier = index - 1 * +state.step
 
   state.innerStyles = {
-    transform: `translateX(${-Math.abs((index - 1) * +state.percentage)}%)`,
+    transform: `translateX(${-Math.abs((index - 1) * +state.step)}px)`,
   }
 }
 
@@ -166,7 +226,7 @@ const next = () => {
 }
 
 const prev = () => {
-  // if (state.activeIndex == state.products.length - 1) return
+  // if (state.activeIndex == props.products.length - 1) return
   moveLeft()
 }
 
@@ -180,11 +240,14 @@ const autoMove = (): number => {
 }
 
 onMounted(() => {
-  setStep()
+  window.addEventListener('resize', setStep)
+  // setStep()
   autoMove()
 })
 
 onUnmounted(() => {
+  window.removeEventListener('resize', setStep)
+
   clearInterval(autoMove())
 })
 </script>
