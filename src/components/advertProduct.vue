@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineProps, PropType } from 'vue'
+import { reactive, PropType } from 'vue'
 
 interface Products {
   products: Array<Product>

@@ -10,6 +10,7 @@ $secondary-color: #f2fbff;
 $gray-color: #333;
 $gray-color-dark: #222;
 $gray-color-light: #e5eef6;
+$gray-color-1: rgba(78, 78, 78, 0.25);
 
 $white-color: #fff;
 $black-color: #000;
@@ -38,6 +39,16 @@ $default-font-size: 1.6rem;
 }
 .mb-4 {
   margin-bottom: 4rem;
+}
+
+.primary-color {
+  background: $primary-color;
+}
+.secondary-color {
+  background: $secondary-color;
+}
+.primary-color-light-2 {
+  background: $primary-color-light-2;
 }
 
 /**

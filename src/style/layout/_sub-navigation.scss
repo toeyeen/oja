@@ -1,4 +1,7 @@
 .sub-navigation {
+  @include respond(tab-land) {
+    display: none;
+  }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
@@ -14,8 +17,13 @@
     height: 55px;
     border-top: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
+    // position: relative;
     &:not(:last-child) {
       border-right: 1px solid $border-color;
     }
+  }
+
+  &-item {
+    display: inline-flex;
   }
 }

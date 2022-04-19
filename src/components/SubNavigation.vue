@@ -6,7 +6,14 @@
       :key="navigation.id"
     >
       <div class="sub-navigation-item">
-        <font-awesome-icon class="icon" :icon="navigation.icon" size="3x" />
+        <BaseIcon :name="navigation.icon" :size="24" />
+
+        <div
+          v-if="navigation.title == 'cart'"
+          class="navbar-top__list-item__cart"
+        >
+          <span> 10 </span>
+        </div>
       </div>
     </div>
 
@@ -21,12 +28,13 @@
 <script setup lang="ts">
 import vue from 'vue'
 import { SubMenu } from '../global/types'
+import BaseIcon from './BaseIcon.vue'
 
 const navigations: Array<SubMenu> = [
-  { id: 1, title: 'profile', icon: 'marker' },
-  { id: 2, title: 'bars', icon: 'bars' },
-  { id: 3, title: 'saved', icon: 'trash' },
-  { id: 4, title: 'cart', icon: 'bars' },
+  { id: 1, title: 'profile', icon: 'user' },
+  { id: 2, title: 'bars', icon: 'map-pin' },
+  { id: 3, title: 'saved', icon: 'star' },
+  { id: 4, title: 'cart', icon: 'shopping-cart' },
 ]
 </script>
 

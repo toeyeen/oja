@@ -5,6 +5,12 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin fCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defineComponent, reactive } from 'vue'
-import Navigation from './components/Navigation.vue'
-import SubNavigation from './components/SubNavigation.vue'
+import Navbar from './components/Navbar.vue'
 import Carousel from './components/Carousel.vue'
 import AdvertProduct from './components/AdvertProduct.vue'
 import CategoryCard from './components/CategoryCard.vue'
@@ -143,8 +142,7 @@ const state = reactive({
 
 <template>
   <div class="header">
-    <Navigation />
-    <SubNavigation />
+    <Navbar />
   </div>
 
   <div class="container">
@@ -162,10 +160,10 @@ const state = reactive({
             class="category__list-item"
           >
             <div class="category__list-item__img">
-              <img
+              <!-- <img
                 src="https://clicks.co.za/medias/Artboard-5.png?context=bWFzdGVyfEN1c3RvbUltYWdlc3w5NTcwfGltYWdlL3BuZ3xDdXN0b21JbWFnZXMvaGYzL2gwNi8xMDQwNjQwMzI3NjgzMC5wbmd8NDdhNTQ5ZGIxN2JmYTc3ODFiZmI4YTM2MjQ0OWI3YTdmNmExNTcxOGQ2NTRkMmY2OGFlZmIxNThhYThkODQ5OQ"
                 alt=""
-              />
+              /> -->
             </div>
             <div class="category__list-item__title">
               <h3>{{ category.name }}</h3>
@@ -198,10 +196,10 @@ const state = reactive({
         <template v-slot:product>
           <div class="category__list-item">
             <div class="category__list-item__img">
-              <img
+              <!-- <img
                 src="https://clicks.co.za/medias/Artboard-5.png?context=bWFzdGVyfEN1c3RvbUltYWdlc3w5NTcwfGltYWdlL3BuZ3xDdXN0b21JbWFnZXMvaGYzL2gwNi8xMDQwNjQwMzI3NjgzMC5wbmd8NDdhNTQ5ZGIxN2JmYTc3ODFiZmI4YTM2MjQ0OWI3YTdmNmExNTcxOGQ2NTRkMmY2OGFlZmIxNThhYThkODQ5OQ"
                 alt=""
-              />
+              /> -->
             </div>
             <div class="category__list-item__title">
               <h3>{{ category.id }}</h3>

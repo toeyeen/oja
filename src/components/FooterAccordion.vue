@@ -1,7 +1,7 @@
 <template>
   <li class="footer-list">
     <div class="footer-list-title" @click="isActive = !isActive">
-      <span>ClubCard</span>
+      <span>{{ props.links.linkTitle }}</span>
       <BaseIcon
         name="chevron-down"
         class="footer-list__icon"
@@ -9,10 +9,17 @@
       />
     </div>
     <div class="footer-list-item__container" :class="isActive ? 'active' : ''">
+      <a
+        v-for="link in props.links.subLinks"
+        :key="link.id"
+        class="footer-list-item"
+        href="#"
+      >
+        {{ link.title }}
+      </a>
+      <!-- <a class="footer-list-item" href="#"> Join Clubcard </a>
       <a class="footer-list-item" href="#"> Join Clubcard </a>
-      <a class="footer-list-item" href="#"> Join Clubcard </a>
-      <a class="footer-list-item" href="#"> Join Clubcard </a>
-      <a class="footer-list-item" href="#"> Join Clubcard </a>
+      <a class="footer-list-item" href="#"> Join Clubcard </a> -->
     </div>
   </li>
 </template>
@@ -21,102 +28,14 @@
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 
+const props = defineProps({
+  links: {
+    type: Object,
+  },
+})
+
 let isActive = ref(false)
 let windowWidth = ref(0)
-const links = [
-  {
-    id: 1,
-    linkTitle: 'ClubCard',
-    subLinks: [
-      {
-        id: 1,
-        title: 'Join ClubCard',
-      },
-      {
-        id: 2,
-        title: 'Partners',
-      },
-      {
-        id: 3,
-        title: 'Competition',
-      },
-      {
-        id: 4,
-        title: 'Baby Club',
-      },
-    ],
-  },
-  {
-    id: 2,
-    linkTitle: 'My Account',
-    subLinks: [
-      {
-        id: 1,
-        title: 'My CLubCard',
-      },
-      {
-        id: 2,
-        title: 'Order History',
-      },
-      {
-        id: 3,
-        title: 'Competition',
-      },
-      {
-        id: 4,
-        title: 'Baby Club',
-      },
-    ],
-  },
-  {
-    id: 1,
-    linkTitle: 'Customer Service',
-    subLinks: [
-      {
-        id: 1,
-        title: 'Help',
-      },
-      {
-        id: 2,
-        title: 'Contact Us',
-      },
-      {
-        id: 3,
-        title: 'Legal terms and condition',
-      },
-      {
-        id: 4,
-        title: 'Delivery times',
-      },
-    ],
-  },
-  {
-    id: 1,
-    linkTitle: 'Click Groups',
-    subLinks: [
-      {
-        id: 1,
-        title: 'Careers',
-      },
-      {
-        id: 2,
-        title: 'Click Groups',
-      },
-      {
-        id: 3,
-        title: 'Legal',
-      },
-      {
-        id: 4,
-        title: 'Club Card',
-      },
-      {
-        id: 5,
-        title: 'Site Stamp',
-      },
-    ],
-  },
-]
 
 watch(windowWidth, (newWidth, oldWidth) => {
   if (newWidth > 768) {
@@ -194,6 +113,7 @@ onUnmounted(() => {
     }
 
     display: block;
+    font-weight: 300;
   }
 }
 .rotate {

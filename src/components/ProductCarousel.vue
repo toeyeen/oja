@@ -71,14 +71,7 @@
 import ProductItem from './ProductItem.vue'
 // import { useMedia } from '../composable/useMedia'
 
-import {
-  reactive,
-  ref,
-  defineProps,
-  onMounted,
-  onUnmounted,
-  computed,
-} from 'vue'
+import { reactive, ref, onMounted, onUnmounted, computed } from 'vue'
 
 const props = defineProps({
   headline: {

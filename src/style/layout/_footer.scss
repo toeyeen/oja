@@ -4,7 +4,7 @@
     padding: 3rem 1.6rem;
 
     @include respond(phone) {
-      padding: 4rem 1.6rem;
+      padding: 3rem 1.6rem;
     }
 
     @include respond(desktop) {
@@ -28,7 +28,6 @@
         // align-items: center;
         margin: 0 auto;
         text-align: center;
-        @include b-visual;
       }
 
       // @include respond(tab-land) {
@@ -72,7 +71,6 @@
         }
       }
 
-      @include b-visual;
       @include respond(tab-land) {
         flex: 1;
         display: flex;
@@ -93,7 +91,7 @@
     background: $primary-color;
     color: $white-color;
     font-size: 1.6em;
-    padding: 3rem 1.6rem;
+    padding: 4rem 1.6rem;
 
     @include respond(tab-land) {
       display: flex;
@@ -105,15 +103,19 @@
       font-weight: 300;
       margin-bottom: 1rem;
 
-      & > p:nth-child(2) {
-        font-weight: 400;
+      & > div {
+        margin-bottom: 2rem;
+      }
+
+      & > div > p:nth-child(1) {
+        font-weight: 600;
       }
 
       @include respond(tab-land) {
         width: 16.6%;
 
         & > div:nth-child(2) {
-          margin-top: 2rem;
+          margin-top: 3.5rem;
         }
       }
     }
@@ -133,6 +135,71 @@
         column-gap: 2rem;
         width: 66.6%;
         justify-items: center;
+      }
+    }
+  }
+
+  &__section-3 {
+    background-color: $primary-color-dark;
+    color: $white-color;
+    font-size: 1.4em;
+    font-weight: 300;
+    padding: 2rem 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include respond(desktop) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      flex-direction: row;
+
+      & > div:nth-child(1) {
+        margin-right: 3rem;
+      }
+    }
+
+    &__payment-link {
+      // margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100px;
+
+      @media only screen and (min-width: 386px) {
+        margin-top: 2rem;
+        height: auto;
+      }
+
+      @include respond(desktop) {
+        margin-top: 0;
+      }
+
+      // @include respond(sm-phone) {
+      //   height: auto;
+      // }
+
+      &__item {
+        border-radius: 20px;
+        background-color: $white-color;
+        @include fCenter;
+        // padding: 0.5rem 1.5rem;
+        padding: 4px 10px;
+        margin: 0 0.5rem;
+        min-width: 50px;
+
+        @include respond(phone) {
+          margin: 0 1rem;
+        }
+
+        & > img {
+          height: 20px;
+          max-width: 100%;
+        }
       }
     }
   }
