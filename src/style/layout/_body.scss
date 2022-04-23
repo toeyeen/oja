@@ -38,3 +38,18 @@
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   }
 }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 1rem 1.6rem;
+
+  @include respond(phone) {
+    margin: 2rem 3.2rem;
+  }
+}

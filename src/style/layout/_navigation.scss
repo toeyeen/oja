@@ -71,6 +71,7 @@
     }
     display: inline;
     position: relative;
+    cursor: pointer;
 
     &-btn {
       width: 32px;
@@ -126,7 +127,7 @@
 .navbar {
   background-color: $primary-color;
   color: $white-color;
-  font-size: 1.6rem;
+  font-size: 14px;
   &-top {
     display: none;
 
@@ -135,7 +136,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     @include respond(tab-land) {

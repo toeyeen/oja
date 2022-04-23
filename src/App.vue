@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { defineComponent, reactive } from 'vue'
 import Navbar from './components/Navbar.vue'
-import Carousel from './components/Carousel.vue'
-import AdvertProduct from './components/AdvertProduct.vue'
-import CategoryCard from './components/CategoryCard.vue'
-import TopProducts from './components/TopProducts.vue'
-import ProductCarousel from './components/ProductCarousel.vue'
 import Footer from './components/Footer.vue'
+import Home from './pages/Home.vue'
+import Login from './pages/Login.vue'
 
 // const products = [
 //   {
@@ -145,69 +142,8 @@ const state = reactive({
     <Navbar />
   </div>
 
-  <div class="container">
-    <div class="advert__first">
-      <Carousel />
-      <AdvertProduct :products="state.advert1" />
-    </div>
-
-    <div class="advert__second">
-      <category-card title="Trending Categories">
-        <template v-slot:product>
-          <div
-            v-for="category in state.categories"
-            :key="category.id"
-            class="category__list-item"
-          >
-            <div class="category__list-item__img">
-              <!-- <img
-                src="https://clicks.co.za/medias/Artboard-5.png?context=bWFzdGVyfEN1c3RvbUltYWdlc3w5NTcwfGltYWdlL3BuZ3xDdXN0b21JbWFnZXMvaGYzL2gwNi8xMDQwNjQwMzI3NjgzMC5wbmd8NDdhNTQ5ZGIxN2JmYTc3ODFiZmI4YTM2MjQ0OWI3YTdmNmExNTcxOGQ2NTRkMmY2OGFlZmIxNThhYThkODQ5OQ"
-                alt=""
-              /> -->
-            </div>
-            <div class="category__list-item__title">
-              <h3>{{ category.name }}</h3>
-            </div>
-          </div>
-        </template>
-      </category-card>
-      <AdvertProduct :products="state.advert2" />
-    </div>
-
-    <TopProducts />
-    <div class="advert__third">
-      <ProductCarousel
-        headline="Save on Nestle Cerelac baby cereals!"
-        :promotion="true"
-        :products="state.products"
-      />
-      <ProductCarousel
-        headline="Get the cheapest Nivea shower gel free, when you buy three!"
-        :products="state.products"
-      />
-    </div>
-
-    <div class="advert__fourth">
-      <category-card
-        v-for="category in state.categories"
-        :key="category.id"
-        :title="category.name"
-      >
-        <template v-slot:product>
-          <div class="category__list-item">
-            <div class="category__list-item__img">
-              <!-- <img
-                src="https://clicks.co.za/medias/Artboard-5.png?context=bWFzdGVyfEN1c3RvbUltYWdlc3w5NTcwfGltYWdlL3BuZ3xDdXN0b21JbWFnZXMvaGYzL2gwNi8xMDQwNjQwMzI3NjgzMC5wbmd8NDdhNTQ5ZGIxN2JmYTc3ODFiZmI4YTM2MjQ0OWI3YTdmNmExNTcxOGQ2NTRkMmY2OGFlZmIxNThhYThkODQ5OQ"
-                alt=""
-              /> -->
-            </div>
-            <div class="category__list-item__title">
-              <h3>{{ category.id }}</h3>
-            </div>
-          </div>
-        </template>
-      </category-card>
-    </div>
+  <div class="content">
+    <router-view></router-view>
   </div>
 
   <div class="footer">
