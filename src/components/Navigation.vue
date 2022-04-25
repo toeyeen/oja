@@ -1,7 +1,9 @@
 <template>
   <div class="navigation">
     <div class="navigation__section-1">
-      <div class="navigation__logo">BRAND NAME</div>
+      <div class="navigation__logo">
+        <router-link :to="{ name: 'Home' }"> BRAND NAME </router-link>
+      </div>
 
       <div class="navigation__order">
         <BaseIcon name="truck" class="navigation__order-icon-1" />
@@ -37,9 +39,11 @@
         <base-drawer @cancel="close" :show="showDrawer">
           <template v-slot:body class="login__drawer">
             <div class="login__drawer-auth">
-              <span>Sign In</span>
-              |
-              <span> Create Account </span>
+              <router-link :to="{ name: 'Login' }">
+                <span>Sign In</span>
+                |
+                <span> Create Account </span>
+              </router-link>
             </div>
 
             <div class="login__drawer-links">

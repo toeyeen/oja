@@ -1,0 +1,86 @@
+.account {
+  max-width: 940px;
+  margin: 0 auto;
+
+  &__view {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    &-list {
+      flex: 0 0 30%;
+
+      &-items {
+        margin-top: 1rem;
+        padding: 0.5rem 0rem;
+        background-color: $white-color;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+        transition: all 2s;
+      }
+
+      &-item {
+        padding: 2rem 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+
+        &:not(:last-child) {
+          // border-bottom: 1px solid red;
+        }
+        &.active {
+          margin-left: -3px;
+          border-left: 5px solid $primary-color-light-2;
+          font-weight: bold;
+        }
+
+        span:hover {
+          // transition: font-weight 0.4s;
+
+          text-decoration: underline;
+        }
+      }
+
+      &-header {
+        display: flex;
+        align-items: center;
+        // gap: 1.2rem;
+        background: $white-color;
+        height: 20rem;
+
+        &__initials {
+          height: 10rem;
+          width: 10rem;
+          border-radius: 99px;
+          position: relative;
+          left: -1.6rem;
+          background-color: $primary-color;
+          color: $white-color;
+
+          h1 {
+            @include absCenter;
+            font-size: 30px;
+            font-weight: bold;
+          }
+        }
+        &__greetings {
+          font-size: 14px;
+          font-weight: 300;
+
+          p:nth-child(2) {
+            margin-top: 0.6rem;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+    &-display {
+      flex: 1;
+      @include b-visual;
+    }
+  }
+}

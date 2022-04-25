@@ -143,7 +143,11 @@ const state = reactive({
   </div>
 
   <div class="content">
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <transition>
+        <component :is="Component" :key="route.path"></component>
+      </transition>
+    </router-view>
   </div>
 
   <div class="footer">
@@ -151,4 +155,49 @@ const state = reactive({
   </div>
 </template>
 
-<style></style>
+<style>
+/* .slide-enter-active,
+.slide-leave-active {
+  transition: transform 1s;
+}
+
+.slide-enter-from,
+.slide-enter-to {
+  opacity: 0;
+  transform: translateX(-30%);
+} */
+
+.slide-left-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  opacity: 0;
+  transform: translate(-100vw);
+  overflow: hidden;
+}
+
+.slide-left-enter {
+  opacity: 0;
+  transform: translate(100vw);
+}
+
+.fade-in-enter,
+.fade-in-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+  clip-path: polygon(
+    calc(100% - 45px) 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 5px,
+    calc(100% - 25px) 0,
+    calc(100% - 35px) 0
+  );
+}
+
+.fade-in-enter-active,
+.fade-in-leave-active {
+  transition: opacity 0.3s, transform 0.5s, clip-path 1s;
+}
+</style>

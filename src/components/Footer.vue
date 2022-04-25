@@ -101,7 +101,7 @@ const state = reactive({
       subLinks: [
         {
           id: 1,
-          title: 'My CLubCard',
+          title: 'My ClubCard',
         },
         {
           id: 2,

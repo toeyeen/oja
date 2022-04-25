@@ -66,10 +66,13 @@ const color = computed(() => {
   height: 36px;
   width: 100%;
 
-  &:focus {
-    // outline: 1px solid #ccc;
+  &:focus,
+  &:active {
     outline: none;
+    border: none;
+    box-shadow: inset 0px 0px 3px 1px vars.$primary-color;
   }
+
   // width: 300px;
 
   &__container {

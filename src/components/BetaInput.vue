@@ -1,11 +1,13 @@
 <template>
-  <label :for="label" class="beta-field__label"> {{ label }}: </label>
-  <input
-    class="beta-field"
-    :value="modelValue"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-    v-bind="$attrs"
-  />
+  <div>
+    <label :for="label" class="beta-field__label"> {{ label }}: </label>
+    <input
+      class="beta-field"
+      :value="modelValue"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      v-bind="$attrs"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -27,7 +29,7 @@ const props = defineProps({
 const inputtEmit = () => {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use '../style/abstracts/variables' as vars;
 .beta-field {
   border: none;
@@ -57,5 +59,17 @@ const inputtEmit = () => {}
     text-transform: uppercase;
     letter-spacing: 1px;
   }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 </style>
