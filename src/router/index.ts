@@ -14,6 +14,10 @@ import Password from '../pages/personal/Password.vue'
 import Payment from '../pages/personal/Payment.vue'
 import Social from '../pages/personal/Social.vue'
 import Giftcard from '../pages/Giftcard.vue'
+import Prime from '../pages/Prime.vue'
+import AddAddress from '../pages/personal/Address/AddAddress.vue'
+import OrderDetails from '../pages/order/OrderDetails.vue'
+
 const routes = [
   {
     path: '/',
@@ -56,10 +60,22 @@ const routes = [
         component: Orders,
       },
       {
-        path: 'addresses',
+        path: 'orders/:id',
+        name: 'OrderDetails',
+        component: OrderDetails,
+      },
+      {
+        path: 'address-book',
         name: 'Address',
         component: Address,
       },
+
+      {
+        path: 'address-book/add',
+        name: 'AddAddress',
+        component: AddAddress,
+      },
+
       {
         path: 'my-details',
         name: 'Details',
@@ -84,6 +100,11 @@ const routes = [
         path: 'gift-cards',
         name: 'Giftcard',
         component: Giftcard,
+      },
+      {
+        path: 'prime',
+        name: 'Prime',
+        component: Prime,
       },
     ],
   },

@@ -1,9 +1,15 @@
 <template>
   <div class="login">
     <form class="form">
-      <BetaInput label="Email Address" v-model="state.form.email" type="text" />
+      <BetaInput
+        class="mb-2"
+        label="Email Address"
+        v-model="state.form.email"
+        type="text"
+      />
       <BetaInput
         label="Password"
+        class="mb-2"
         v-model="state.form.password"
         type="password"
       />

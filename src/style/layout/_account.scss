@@ -15,16 +15,18 @@
         padding: 0.5rem 0rem;
         background-color: $white-color;
         font-size: 16px;
-        font-weight: 300;
         cursor: pointer;
-        transition: all 2s;
+        // transition: all 2s;
       }
 
       &-item {
         padding: 2rem 1.6rem;
-        display: flex;
-        align-items: center;
-        gap: 2.4rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 2.4rem;
+        }
 
         &:not(:last-child) {
           // border-bottom: 1px solid red;
@@ -80,7 +82,451 @@
     }
     &-display {
       flex: 1;
-      @include b-visual;
+      align-self: self-start;
+      & > div:not(:first-child) {
+        margin-top: 1.6rem;
+        background-color: $white-color;
+        // padding: 4rem 4rem 3rem 4rem;
+        line-height: 1.6;
+      }
+
+      &-pagination {
+        // margin: 1rem 4rem;
+        padding: 2rem 4rem 0rem 4rem;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      &-header {
+        background-color: $white-color;
+        padding: 4rem 4rem 3rem 4rem;
+        line-height: 1.6;
+        font-size: 14px;
+
+        h1 {
+          text-transform: uppercase;
+          font-size: 28px;
+          letter-spacing: 2px;
+        }
+        & > button {
+          margin-top: 1.2rem;
+          width: 60%;
+          @include sBtn;
+        }
+      }
+
+      &-form {
+        margin-top: 3rem;
+        width: 100%;
+        @include respond(tab-land) {
+          width: 60%;
+        }
+      }
+
+      &-prime-1 {
+        &__head {
+          padding: 4rem 4rem 3rem 4rem;
+          display: flex;
+          gap: 2rem;
+          font-size: 14px;
+          background: #ffebcc;
+          &.active {
+            background: #cceede;
+          }
+        }
+
+        &__content {
+          padding: 3rem 4rem 4rem 4rem;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            small {
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              flex: 1;
+              font-size: 12px;
+              font-weight: 500;
+            }
+
+            p {
+              flex: 1;
+              font-size: 14px;
+            }
+          }
+
+          & > p {
+            margin-top: 4rem;
+            font-weight: 300;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &-prime-2 {
+        padding: 4rem 4rem 3rem 4rem;
+
+        &__head {
+          & > p {
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bolder;
+            margin-bottom: 2rem;
+          }
+        }
+        &__content {
+          margin-top: 2rem;
+          font-size: 14px;
+        }
+      }
+
+      &-prime-3 {
+        padding: 4rem;
+
+        &__content {
+          & > p {
+            font-size: 14px;
+          }
+
+          & > a {
+            line-height: 1.6;
+            border-bottom: 1px solid #000;
+            transition: border-bottom 0.4s;
+
+            &:hover {
+              border-bottom: 1px solid #ccc;
+            }
+          }
+        }
+      }
+      &-prime-none {
+        padding: 4rem;
+
+        & > p {
+          font-size: 14px;
+        }
+      }
+
+      &-address-1 {
+        padding: 4rem 4rem 3rem 4rem;
+
+        &__details {
+          display: flex;
+          justify-content: space-between;
+          // @include b-visual;
+
+          &-info {
+            font-size: 16px;
+            font-weight: 400;
+          }
+
+          &-actions {
+            align-self: flex-start;
+            text-align: right;
+
+            & > div {
+              display: flex;
+              gap: 2.4rem;
+              align-items: center;
+              justify-content: space-between;
+              font-size: 14px;
+              font-weight: bold;
+              color: #777;
+              cursor: pointer;
+              margin-bottom: 3rem;
+            }
+          }
+        }
+
+        &__select {
+          margin-top: 2rem;
+          & > div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.6rem;
+            gap: 2rem;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &-add {
+        padding: 4rem 4rem 3rem 4rem;
+        background-color: $white-color;
+
+        & > h1 {
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: bold;
+          margin-bottom: 1.4rem;
+          font-size: 18px;
+        }
+
+        & > p {
+          font-size: 16px;
+          margin-bottom: 4rem;
+        }
+
+        & > form {
+          width: 100%;
+          @include respond(tab-land) {
+            width: 60%;
+          }
+        }
+      }
+
+      &-order {
+        padding: 4rem 4rem 3rem 4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &__status {
+          font-size: 16px;
+        }
+
+        &__delivery {
+          font-size: 12px;
+          color: #777;
+          font-weight: bold;
+        }
+
+        &__item {
+          display: flex;
+          gap: 2rem;
+          margin-top: 2rem;
+          position: relative;
+
+          &-image {
+            flex: 1;
+            display: flex;
+            & > div {
+              max-width: 90px;
+              max-height: 125px;
+              margin-right: 1rem;
+              position: relative;
+              cursor: pointer;
+              & > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            &__overlay {
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba($color: $black-color, $alpha: 0.5);
+              & > span {
+                @include absCenter;
+                font-size: 30px;
+                font-weight: 600;
+                color: $white-color;
+                letter-spacing: -3px;
+              }
+            }
+          }
+
+          &-track {
+            flex: 1;
+            & > button {
+              @include sBtn;
+              width: 100%;
+            }
+          }
+        }
+
+        &__info {
+          display: flex;
+          gap: 2rem;
+          justify-content: space-between;
+
+          &-details {
+            flex: 1;
+            & > p {
+              font-size: 12px;
+              color: #777;
+              font-weight: bold;
+              letter-spacing: 1px;
+
+              &:not(:first-child) {
+                margin-top: 0.5rem;
+              }
+
+              & > span {
+                font-size: 14px;
+              }
+            }
+          }
+
+          &-view {
+            flex: 1;
+            & > button {
+              @include sBtn;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &-details {
+        &-header {
+          background-color: $white-color;
+          padding: 4rem 4rem 3rem 4rem;
+
+          & > h1 {
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+          & > p {
+            font-size: 16px;
+            margin-top: 1.2rem;
+          }
+        }
+        &-order {
+          padding: 4rem 4rem 3rem 4rem;
+
+          & > div {
+            display: flex;
+            // justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.6rem;
+
+            & > p {
+              flex: 1;
+              font-size: 14px;
+              text-transform: uppercase;
+
+              & > span {
+                margin-right: 1.2rem;
+              }
+
+              &:first-child {
+                font-weight: 600;
+                font-size: 15px;
+                letter-spacing: 1px;
+              }
+            }
+          }
+
+          & > button {
+            @include sBtn;
+
+            @include respond(tab-land) {
+              width: 60%;
+              margin-top: 3rem;
+            }
+          }
+        }
+        &-address {
+          padding: 4rem 4rem 3rem 4rem;
+
+          & > h1 {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+
+          &__info {
+            font-size: 16px;
+            font-weight: 400;
+          }
+        }
+
+        &-info {
+          padding: 4rem 4rem 3rem 4rem;
+
+          & > p:first-of-type {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 1rem;
+          }
+          & > p {
+            font-size: 16px;
+          }
+
+          &__header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            & > h1 {
+              font-size: 16px;
+              font-weight: bold;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+          }
+        }
+        &-payment {
+          padding: 4rem 4rem 3rem 4rem;
+
+          &__type {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+            & > img {
+              max-width: 32px;
+              max-height: 30px;
+            }
+
+            & > h1 {
+              font-size: 16px;
+              font-weight: bold;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+
+            & > p {
+              font-size: 16px;
+            }
+          }
+        }
+        &-total {
+          padding: 4rem 4rem 3rem 4rem;
+
+          & > h1 {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+
+          &__order {
+            &-value {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 2rem;
+
+              & > p {
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                &:first-child {
+                  font-size: 16px;
+                  font-weight: bold;
+                  color: #777;
+                }
+              }
+
+              &:last-child {
+                & > p {
+                  font-weight: bold;
+                  color: inherit;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

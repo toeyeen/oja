@@ -41,7 +41,7 @@ const inputtEmit = () => {}
   border-radius: 20px;
   font-size: 16px;
   font-weight: 300;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   // outline: 1px solid red;
 
   &:focus,

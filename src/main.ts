@@ -17,7 +17,7 @@ Object.entries(components).forEach(([path, definition]: any) => {
     .pop()
     .replace(/\.\w+$/, '')
 
-  if (componentName.startsWith('Base')) {
+  if (componentName.startsWith('Base') || componentName.startsWith('Beta')) {
     app.component(componentName, definition.default)
   }
 })

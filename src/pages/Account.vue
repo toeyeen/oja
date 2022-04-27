@@ -20,13 +20,17 @@
         >
           <li
             class="account__view-list-item"
-            :class="{ active: subLink.active }"
+            :class="{
+              active:
+                route.fullPath.substring(route.fullPath.lastIndexOf('/') + 1) ==
+                subLink.slug,
+            }"
             v-for="subLink in link.subLinks"
             :key="subLink.id"
           >
             <router-link
+              @click.native="state.isActive = subLink.slug"
               :to="{ name: subLink.route }"
-              @click="subLink.active = !subLink.active"
             >
               <BaseIcon :name="subLink.icon" :size="18" />
               <span>{{ subLink.title }}</span>
@@ -55,7 +59,7 @@
         </ul> -->
       </div>
       <div class="account__view-display">
-        <router-view></router-view>
+        <router-view :key="$route.fullPath"></router-view>
         <!-- <h1>Account</h1> -->
         <!-- <router-link></router-link> -->
       </div>
@@ -64,9 +68,12 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, watch, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
+let isActive = ref('account-overview')
 const state = reactive({
+  isActive: 'account-overview',
   links: [
     {
       id: 5,
@@ -75,8 +82,9 @@ const state = reactive({
         {
           id: 1,
           title: 'Account overview',
+          slug: 'account',
           icon: 'user',
-          active: true,
+          active: false,
           route: 'AccountOverview',
         },
       ],
@@ -88,16 +96,18 @@ const state = reactive({
         {
           id: 1,
           title: 'My orders',
-          icon: 'user',
+          slug: 'orders',
+          icon: 'package',
           active: false,
           route: 'Orders',
         },
         {
           id: 2,
           title: 'Prime Oja',
+          slug: 'prime',
           icon: 'user',
           active: false,
-          route: 'Orders',
+          route: 'Prime',
         },
       ],
     },
@@ -108,6 +118,7 @@ const state = reactive({
         {
           id: 1,
           title: 'My details',
+          slug: 'my-details',
           icon: 'user',
           active: false,
           route: 'Details',
@@ -115,21 +126,24 @@ const state = reactive({
         {
           id: 2,
           title: 'Change password',
-          icon: 'user',
+          slug: 'change-password',
+          icon: 'lock',
           active: false,
           route: 'Password',
         },
         {
           id: 3,
           title: 'Address book',
-          icon: 'user',
+          slug: 'address-book',
+          icon: 'home',
           active: false,
           route: 'Address',
         },
         {
           id: 4,
           title: 'Social accounts',
-          icon: 'user',
+          slug: 'social-accounts',
+          icon: 'users',
           active: false,
           route: 'Social',
         },
@@ -142,7 +156,8 @@ const state = reactive({
         {
           id: 1,
           title: 'Gift cards',
-          icon: 'user',
+          slug: 'gift-cards',
+          icon: 'gift',
           active: false,
           route: 'Giftcard',
         },
@@ -155,6 +170,7 @@ const state = reactive({
         {
           id: 1,
           title: 'Logout',
+          slug: 'logout',
           icon: 'log-out',
           active: false,
           route: 'Orders',
@@ -163,6 +179,32 @@ const state = reactive({
     },
   ],
 })
+
+const route = useRoute()
+
+// function changeRoute(route: string) {
+//   const newRoute = route.substring(route.lastIndexOf('/') + 1)
+
+//   state.isActive = newRoute
+//   console.log(state.isActive)
+// }
+
+// watch(route, (newRoute, oldRoute) => {
+//   const index = route.fullPath.lastIndexOf('/')
+//   if (index !== 0) {
+//     isActive.value = route.fullPath.substring(
+//       route.fullPath.lastIndexOf('/') + 1
+//     )
+//     state.isActive = route.fullPath.substring(index + 1)
+//     console.log(isActive.value)
+//   }
+
+//   if (index === 0) {
+//     isActive.value = 'account-overview'
+//     state.isActive = 'account-overview'
+//   }
+
+// })
 </script>
 
 <style scoped></style>

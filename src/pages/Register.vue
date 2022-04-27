@@ -13,20 +13,29 @@
           type="text"
         />
       </div>
-      <BetaInput label="Email Address" v-model="state.form.email" type="text" />
+      <BetaInput
+        label="Email Address"
+        class="mb-2"
+        v-model="state.form.email"
+        type="text"
+      />
+
       <BetaInput
         label="Phone Numebr"
+        class="mb-2"
         v-model="state.form.phoneNumber"
         type="number"
       />
 
       <BetaInput
         label="Password"
+        class="mb-2"
         v-model="state.form.password"
         type="password"
       />
       <BetaInput
         label="Confirm Password"
+        class="mb-2"
         v-model="state.form.confirmPassword"
         type="password"
       />
@@ -91,6 +100,7 @@ const email = ref('')
   @include vars.respond(tab-land) {
     &__fullName {
       gap: 12px;
+      margin-bottom: 2rem;
       @include vars.fCenter;
     }
   }

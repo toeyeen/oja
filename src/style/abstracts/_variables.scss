@@ -10,12 +10,14 @@ $secondary-color: #e3f5fc;
 
 $gray-color: #333;
 $gray-color-dark: #222;
+// $gray-color-dark: #222;
 $gray-color-light: #e5eef6;
 $gray-color-1: rgba(78, 78, 78, 0.25);
 
 $white-color: #fff;
 $black-color: #000;
 $red-color: #c00;
+$text-color: #2d2d2d;
 
 $border-color: #d9dee1;
 
@@ -29,6 +31,20 @@ $default-font-size: 1.6rem;
   color: $red-color;
 }
 
+/** Margin styles  **/
+
+.m-1 {
+  margin: 1rem;
+}
+.m-2 {
+  margin: 2rem;
+}
+.m-3 {
+  margin: 3rem;
+}
+.m-4 {
+  margin: 4rem;
+}
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -40,6 +56,70 @@ $default-font-size: 1.6rem;
 }
 .mb-4 {
   margin-bottom: 4rem;
+}
+.my-1 {
+  margin: 1rem 0rem;
+}
+.my-2 {
+  margin: 2rem 0rem;
+}
+.my-3 {
+  margin: 3rem 0rem;
+}
+.my-4 {
+  margin: 4rem 0rem;
+}
+.mx-1 {
+  margin: 0rem 1rem;
+}
+.mx-2 {
+  margin: 0rem 2rem;
+}
+.mx-3 {
+  margin: 0rem 3rem;
+}
+.mx-4 {
+  margin: 0rem 4rem;
+}
+
+/** Padding styles  **/
+
+.p-1 {
+  padding: 1rem !important;
+}
+.p-2 {
+  padding: 2rem !important;
+}
+.p-3 {
+  padding: 3rem !important;
+}
+.p-4 {
+  padding: 4rem !important;
+}
+
+.px-1 {
+  padding: 0 1rem !important;
+}
+.px-2 {
+  padding: 0 2rem !important;
+}
+.px-3 {
+  padding: 0 3rem !important;
+}
+.px-4 {
+  padding: 0 4rem !important;
+}
+.py-1 {
+  padding: 1rem 0 !important;
+}
+.py-2 {
+  padding: 2rem 0 !important;
+}
+.py-3 {
+  padding: 3rem 0 !important;
+}
+.py-4 {
+  padding: 4rem 0 !important;
 }
 
 .primary-color {
@@ -87,3 +167,9 @@ $gutter-horizontal: 6rem;
 
 
 **/
+
+/** Divider **/
+
+.divider {
+  border-bottom: 1px solid #ccc;
+}

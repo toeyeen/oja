@@ -11,6 +11,23 @@
   align-items: center;
 }
 
+@mixin sBtn {
+  color: inherit;
+  border: none;
+  background-color: inherit;
+  padding: 1.4rem 2.4rem;
+  border: 2px solid #ddd;
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone
