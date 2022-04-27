@@ -1,7 +1,9 @@
 <template>
   <account-header title="Address book" icon="home">
     <template #content>
-      <button @click="$router.push({ name: 'AddAddress' })">Add New Address</button>
+      <button @click="$router.push({ name: 'AddAddress' })">
+        Add New Address
+      </button>
     </template>
   </account-header>
 
