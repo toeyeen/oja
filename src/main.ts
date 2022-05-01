@@ -1,9 +1,13 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import FontAwesomeIcon from './plugins/font-awesome'
+import VueSplide from '@splidejs/vue-splide'
+
 import router from './router'
 
 import App from './App.vue'
+
+import '@splidejs/splide/dist/css/splide.min.css'
 
 const app = createApp(App)
 
@@ -23,7 +27,8 @@ Object.entries(components).forEach(([path, definition]: any) => {
 })
 
 app
-  .component('font-awesome-icon', FontAwesomeIcon)
+  .use(VueSplide)
   .use(router)
   .use(createPinia())
+
   .mount('#app')

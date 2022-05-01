@@ -143,11 +143,12 @@ const state = reactive({
   </div>
 
   <div class="content">
-    <router-view v-slot="{ Component, route }">
+    <!-- <router-view v-slot="{ Component, route }">
       <transition>
         <component :is="Component" :key="route.path"></component>
       </transition>
-    </router-view>
+    </router-view> -->
+    <router-view></router-view>
   </div>
 
   <div class="footer">
@@ -155,7 +156,9 @@ const state = reactive({
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@use './style/main.scss' as vars;
+
 /* .slide-enter-active,
 .slide-leave-active {
   transition: transform 1s;
@@ -199,5 +202,41 @@ const state = reactive({
 .fade-in-enter-active,
 .fade-in-leave-active {
   transition: opacity 0.3s, transform 0.5s, clip-path 1s;
+}
+
+.splide {
+  &-carousel {
+    height: 100%;
+  }
+  height: 300px;
+
+  @include vars.respond(tab-land) {
+    height: 200px;
+  }
+
+  @include vars.respond(desktop) {
+    height: 300px;
+  }
+
+  @include vars.respond(big-desktop) {
+    height: 300px;
+  }
+
+  &__track {
+    height: 100%;
+
+    & > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__slide {
+    // color: vars.$white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

@@ -5,7 +5,7 @@
       <button class="btn btn-link">View more</button>
     </div>
 
-    <div class="product-carousel__inner" ref="inner" :style="state.innerStyles">
+    <!-- <div class="product-carousel__inner" ref="inner" :style="state.innerStyles">
       <div
         class="product-carousel__list-item"
         v-for="product in props.products"
@@ -17,23 +17,8 @@
         </div>
       </div>
 
-      <!-- <div class="product-carousel__list">
-        <div
-          class="product-carousel__list-item"
-          v-for="product in props.products"
-          :key="product.id"
-        >
-          <ProductItem :product="product" />
-        </div>
-      </div> -->
-      <!-- <div
-        v-for="slide in state.products"
-        :key="slide.id"
-        class="carousel__inner-card"
-      >
-        <ProductItem :product="slide" />
-      </div> -->
-    </div>
+
+    </div>   
 
     <div
       class="carousel__control"
@@ -63,6 +48,26 @@
       >
         Next
       </button>
+    </div> -->
+
+    <div class="splide-carousel">
+      <Splide
+        :options="{
+          rewind: true,
+          perPage: 2,
+          breakpoints: {
+            640: {
+              perPage: 1,
+            },
+          },
+        }"
+      >
+        <SplideSlide v-for="product in props.products" :key="product.id">
+          <div class="product-carousel__list-style">
+            <ProductItem :product="product" />
+          </div>
+        </SplideSlide>
+      </Splide>
     </div>
   </div>
 </template>

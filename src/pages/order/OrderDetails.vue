@@ -1,7 +1,10 @@
 <template>
   <!-- <div class="account__view-display-details"></div> -->
+
   <div class="account__view-display-details-header">
     <h1>Order Details</h1>
+
+    <h1>{{ $route.params.id }}</h1>
 
     <p>Thanks for your order! Check out the details below.</p>
   </div>
@@ -52,13 +55,192 @@
 
     <div class="my-3 divider"></div>
 
-    <div class="account__view-display-details-info__card">
-      <img
-        src="https://images.asos-media.com/products/image/22415420-1-midwashblue"
-        alt=""
-      />
+    <div class="account__view-display-details-info__wrapper">
+      <div class="account__view-display-details-info__wrapper-card">
+        <div
+          class="account__view-display-details-info__wrapper-card__section-1"
+        >
+          <img
+            class="j_YZXSU_kbEMaR9vx8I6- _2SFZWYibAPFNAOzLl7MeDU"
+            alt="Image of product"
+            sizes="
+  (min-width: 640px) 195px,
+  220px
+"
+            :src="`${image.src}?wid=300&amp;fit=constrain`"
+            :srcset="`${image.src}?wid=100&amp;fit=constrain 100w,${image.src}?wid=200&amp;fit=constrain 200w,${image.src}?wid=300&amp;fit=constrain 300w,${image.src}?wid=400&amp;fit=constrain 400w,${image.src}?wid=500&amp;fit=constrain 500w,${image.src}?wid=600&amp;fit=constrain 600w,${image.src}?wid=700&amp;fit=constrain 700w,${image.src}?wid=800&amp;fit=constrain 800w`"
+          />
 
-      <p></p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            inventore neque
+          </p>
+
+          <div>
+            $28.80
+            <span></span>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+        <div
+          class="account__view-display-details-info__wrapper-card__section-2"
+        >
+          <p>Mid wash blue</p>
+
+          <div class="divider"></div>
+
+          <div>W32 L30</div>
+        </div>
+      </div>
+      <div class="account__view-display-details-info__wrapper-card">
+        <div
+          class="account__view-display-details-info__wrapper-card__section-1"
+        >
+          <img
+            class="j_YZXSU_kbEMaR9vx8I6- _2SFZWYibAPFNAOzLl7MeDU"
+            alt="Image of product"
+            sizes="
+  (min-width: 640px) 195px,
+  220px
+"
+            :src="`${image.src}?wid=300&amp;fit=constrain`"
+            :srcset="`${image.src}?wid=100&amp;fit=constrain 100w,${image.src}?wid=200&amp;fit=constrain 200w,${image.src}?wid=300&amp;fit=constrain 300w,${image.src}?wid=400&amp;fit=constrain 400w,${image.src}?wid=500&amp;fit=constrain 500w,${image.src}?wid=600&amp;fit=constrain 600w,${image.src}?wid=700&amp;fit=constrain 700w,${image.src}?wid=800&amp;fit=constrain 800w`"
+          />
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            inventore neque
+          </p>
+
+          <div>
+            $28.80
+            <span></span>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+        <div
+          class="account__view-display-details-info__wrapper-card__section-2"
+        >
+          <p>Mid wash blue</p>
+
+          <div class="divider"></div>
+
+          <div>W32 L30</div>
+        </div>
+      </div>
+      <div class="account__view-display-details-info__wrapper-card">
+        <div
+          class="account__view-display-details-info__wrapper-card__section-1"
+        >
+          <img
+            class="j_YZXSU_kbEMaR9vx8I6- _2SFZWYibAPFNAOzLl7MeDU"
+            alt="Image of product"
+            sizes="
+  (min-width: 640px) 195px,
+  220px
+"
+            :src="`${image.src}?wid=300&amp;fit=constrain`"
+            :srcset="`${image.src}?wid=100&amp;fit=constrain 100w,${image.src}?wid=200&amp;fit=constrain 200w,${image.src}?wid=300&amp;fit=constrain 300w,${image.src}?wid=400&amp;fit=constrain 400w,${image.src}?wid=500&amp;fit=constrain 500w,${image.src}?wid=600&amp;fit=constrain 600w,${image.src}?wid=700&amp;fit=constrain 700w,${image.src}?wid=800&amp;fit=constrain 800w`"
+          />
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            inventore neque
+          </p>
+
+          <div>
+            $28.80
+            <span></span>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+        <div
+          class="account__view-display-details-info__wrapper-card__section-2"
+        >
+          <p>Mid wash blue</p>
+
+          <div class="divider"></div>
+
+          <div>W32 L30</div>
+        </div>
+      </div>
+      <div class="account__view-display-details-info__wrapper-card">
+        <div
+          class="account__view-display-details-info__wrapper-card__section-1"
+        >
+          <img
+            class="j_YZXSU_kbEMaR9vx8I6- _2SFZWYibAPFNAOzLl7MeDU"
+            alt="Image of product"
+            sizes="
+  (min-width: 640px) 195px,
+  220px
+"
+            :src="`${image.src}?wid=300&amp;fit=constrain`"
+            :srcset="`${image.src}?wid=100&amp;fit=constrain 100w,${image.src}?wid=200&amp;fit=constrain 200w,${image.src}?wid=300&amp;fit=constrain 300w,${image.src}?wid=400&amp;fit=constrain 400w,${image.src}?wid=500&amp;fit=constrain 500w,${image.src}?wid=600&amp;fit=constrain 600w,${image.src}?wid=700&amp;fit=constrain 700w,${image.src}?wid=800&amp;fit=constrain 800w`"
+          />
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            inventore neque
+          </p>
+
+          <div>
+            $28.80
+            <span></span>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+        <div
+          class="account__view-display-details-info__wrapper-card__section-2"
+        >
+          <p>Mid wash blue</p>
+
+          <div class="divider"></div>
+
+          <div>W32 L30</div>
+        </div>
+      </div>
+      <div class="account__view-display-details-info__wrapper-card">
+        <div
+          class="account__view-display-details-info__wrapper-card__section-1"
+        >
+          <img
+            class="j_YZXSU_kbEMaR9vx8I6- _2SFZWYibAPFNAOzLl7MeDU"
+            alt="Image of product"
+            sizes="
+  (min-width: 640px) 195px,
+  220px
+"
+            :src="`${image.src}?wid=300&amp;fit=constrain`"
+            :srcset="`${image.src}?wid=100&amp;fit=constrain 100w,${image.src}?wid=200&amp;fit=constrain 200w,${image.src}?wid=300&amp;fit=constrain 300w,${image.src}?wid=400&amp;fit=constrain 400w,${image.src}?wid=500&amp;fit=constrain 500w,${image.src}?wid=600&amp;fit=constrain 600w,${image.src}?wid=700&amp;fit=constrain 700w,${image.src}?wid=800&amp;fit=constrain 800w`"
+          />
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            inventore neque
+          </p>
+
+          <div>
+            $28.80
+            <span></span>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+        <div
+          class="account__view-display-details-info__wrapper-card__section-2"
+        >
+          <p>Mid wash blue</p>
+
+          <div class="divider"></div>
+
+          <div>W32 L30</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -106,8 +288,12 @@
   </div>
 </template>
 
-<script>
-export default {}
+<script setup lang="ts">
+import { reactive } from 'vue'
+
+const image = reactive({
+  src: 'https://images.asos-media.com/products/image/22415420-1-midwashblue',
+})
 </script>
 
 <style lang="scss" scoped></style>

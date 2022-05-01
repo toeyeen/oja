@@ -48,7 +48,13 @@
         <p>Order Date: <span> 15 Jan, 2022 </span></p>
       </div>
       <div class="account__view-display-order__info-view">
-        <button>View Order</button>
+        <button
+          @click="
+            $router.push({ name: 'OrderDetails', params: { id: '12345' } })
+          "
+        >
+          View Order
+        </button>
       </div>
     </div>
   </div>

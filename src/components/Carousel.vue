@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel">
+  <!-- <div class="carousel">
     <div class="carousel__inner" ref="inner" :style="state.innerStyles">
       <div
         v-for="slide in state.slides"
@@ -40,6 +40,22 @@
         Next
       </button>
     </div>
+  </div> -->
+
+  <div class="splide-carousel">
+    <Splide :options="{ rewind: true }">
+      <SplideSlide v-for="slide in state.slides" :key="slide.id">
+        <h1>
+          {{ slide.id }}
+        </h1>
+        <!-- 
+        <img
+          src="https://images.unsplash.com/photo-1648047548158-c5dadf258bf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          alt="Sample 1"
+          style="height: 100%"
+        /> -->
+      </SplideSlide>
+    </Splide>
   </div>
 </template>
 
@@ -193,4 +209,46 @@ onUnmounted(() => {
    */
 </script>
 
-<style scoped></style>
+<style lang="scss">
+@use '../style/main.scss' as vars;
+.splide {
+  &-carousel {
+    height: 100%;
+  }
+  height: 300px;
+
+  @include vars.respond(tab-land) {
+    height: 200px;
+  }
+
+  @include vars.respond(desktop) {
+    height: 300px;
+  }
+
+  @include vars.respond(big-desktop) {
+    height: 300px;
+  }
+
+  &__track {
+    height: 100%;
+
+    & > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__slide {
+    // color: vars.$white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// .splide__track {
+//   height: 100%;
+// }
+// height: 200px;
+</style>

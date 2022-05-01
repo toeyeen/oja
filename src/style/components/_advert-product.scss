@@ -1,16 +1,21 @@
 .advert-products {
+  // margin: 0rem 1rem;
+  margin: 2.4rem 1rem;
+
   display: block;
+
+  @include respond(tab-land) {
+    margin: 0rem 1rem;
+  }
 
   @include respond(phone) {
     display: flex;
     justify-content: space-around;
-    margin: 0 1rem;
   }
 }
 
 .advert-product {
   margin: 2.4rem auto;
-  // margin: 2.4rem 2rem;
   max-width: 300px;
   max-height: 300px;
 
@@ -21,12 +26,15 @@
     margin: 0rem 0.5rem;
   }
 
-  // @include respond(tab-land) {
-  //   width: 200px;
-  //   height: 200px;
-  //   margin: 0 auto;
-  //   margin: 2.4rem 2rem;
-  // }
+  @include respond(tab-land) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @include respond(desktop) {
+    width: 300px;
+    height: 300px;
+  }
 
   &__image,
   img {
