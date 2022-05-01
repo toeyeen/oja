@@ -210,43 +210,6 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
-@use '../style/main.scss' as vars;
-.splide {
-  &-carousel {
-    height: 100%;
-  }
-  height: 300px;
-
-  @include vars.respond(tab-land) {
-    height: 200px;
-  }
-
-  @include vars.respond(desktop) {
-    height: 300px;
-  }
-
-  @include vars.respond(big-desktop) {
-    height: 300px;
-  }
-
-  &__track {
-    height: 100%;
-
-    & > li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  &__slide {
-    // color: vars.$white-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 // .splide__track {
 //   height: 100%;
 // }
