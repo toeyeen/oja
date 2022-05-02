@@ -41,6 +41,7 @@ const state = reactive({
     {
       id: '1',
       name: 'Nestle',
+      brand: 'Nestle',
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:
@@ -49,6 +50,7 @@ const state = reactive({
     {
       id: '2',
       name: 'Indomie',
+      brand: 'Indomie',
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:
@@ -57,6 +59,8 @@ const state = reactive({
     {
       id: '3',
       name: 'Dangote',
+      brand: 'Dangote',
+
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:
@@ -65,6 +69,7 @@ const state = reactive({
     {
       id: '4',
       name: 'Dangote',
+      brand: 'Dangote',
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:
@@ -73,6 +78,7 @@ const state = reactive({
     {
       id: '5',
       name: 'Dangote',
+      brand: 'Dangote',
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:
@@ -81,6 +87,7 @@ const state = reactive({
     {
       id: '6',
       name: 'Dangote',
+      brand: 'Dangote',
       description: 'Cerelac Baby Cereal With Milk Banana 250g',
       price: '37.99',
       image:

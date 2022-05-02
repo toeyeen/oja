@@ -292,6 +292,7 @@
 import { reactive } from 'vue'
 
 const image = reactive({
+  // src: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/64d34b90-daf8-4429-819c-e8eb59832699/jordan-series-4-mens-shoes-zlXS1T.png',
   src: 'https://images.asos-media.com/products/image/22415420-1-midwashblue',
 })
 </script>

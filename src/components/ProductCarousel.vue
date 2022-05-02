@@ -51,17 +51,7 @@
     </div> -->
 
     <div class="splide-carousel">
-      <Splide
-        :options="{
-          rewind: true,
-          perPage: 2,
-          breakpoints: {
-            640: {
-              perPage: 1,
-            },
-          },
-        }"
-      >
+      <Splide :options="splideOptions">
         <SplideSlide v-for="product in props.products" :key="product.id">
           <div class="product-carousel__list-style">
             <ProductItem :product="product" />
@@ -129,6 +119,17 @@ const state = reactive({
   perPage: 2,
 })
 const inner = ref()
+
+const splideOptions = {
+  // autoplay: true,
+  rewind: true,
+  perPage: 2,
+  breakpoints: {
+    640: {
+      perPage: 1,
+    },
+  },
+}
 
 const headlineStyle = computed(() => {
   return { 'text-red': props.promotion == true }

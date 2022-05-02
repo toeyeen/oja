@@ -43,7 +43,7 @@
   </div> -->
 
   <div class="splide-carousel">
-    <Splide :options="{ rewind: true }">
+    <Splide :options="splideOptions">
       <SplideSlide v-for="slide in state.slides" :key="slide.id">
         <h1>
           {{ slide.id }}
@@ -81,6 +81,11 @@ interface State {
   interval: number
   ctrlPrevNext: boolean
   ctrlCenter: boolean
+}
+
+const splideOptions = {
+  autoplay: true,
+  rewind: true,
 }
 
 const state: State = reactive({

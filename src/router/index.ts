@@ -62,6 +62,7 @@ const routes = [
       {
         path: 'orders/:id',
         name: 'OrderDetails',
+        props: true,
         component: OrderDetails,
       },
       {
@@ -112,6 +113,14 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart,
+  },
+
+  {
+    path: '/product/:id',
+    props: true,
+    name: 'ProductDetails',
+    component: () =>
+      import(/* webpackChunkName: "product" */ '../pages/productDetails.vue'),
   },
 ]
 

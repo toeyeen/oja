@@ -21,7 +21,11 @@
         <div class="top-products__list-item__price">R 180.00</div>
         <div class="top-products__list-item__btn">Shop now</div>
         <div><BaseIcon name="star" /></div> -->
-        <ProductItem :product="product" />
+        <router-link
+          :to="{ name: 'ProductDetails', params: { id: product.id } }"
+        >
+          <ProductItem :product="product" />
+        </router-link>
       </div>
     </div>
   </div>

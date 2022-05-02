@@ -23,6 +23,14 @@ const props = defineProps({
     type: Number,
     default: 22,
   },
+  stroke: {
+    type: String,
+    default: 'currentColor',
+  },
+  fill: {
+    type: String,
+    default: 'none',
+  },
 })
 
 const state = reactive({
@@ -37,6 +45,8 @@ const iconSvg = computed(() => {
   return feather.icons[props.name].toSvg({
     width: props.size,
     height: props.size,
+    fill: props.fill ?? 'none',
+    stroke: props.stroke ?? 'currentColor',
   })
 })
 </script>
